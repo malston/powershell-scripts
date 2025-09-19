@@ -1,0 +1,133 @@
+# PowerShell Module Output
+output/
+*.nupkg
+*.zip
+
+# Test Results
+TestResults.xml
+coverage.xml
+coverage.json
+*.trx
+test-results/
+
+# Build artifacts
+build/
+dist/
+*.dll
+*.exe
+*.pdb
+
+# PowerShell specific
+*.ps1xml
+*.pssc
+*.psd1.bak
+*.psm1.bak
+*.ps1.bak
+
+# Logs
+*.log
+logs/
+*.transcript
+
+# System Information Reports
+SystemInfo-*.json
+SystemInfo-*.csv
+SystemInfo-*.xml
+
+# IDE and Editor files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.idea/
+*.swp
+*.swo
+*~
+.vs/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Credential and sensitive files
+*.credential
+*.cred
+*.pfx
+*.cer
+*.key
+*.secret
+secrets/
+credentials/
+
+# Local configuration
+*.local
+*.local.json
+*.local.ps1
+local.settings.json
+
+# Package management
+packages/
+node_modules/
+bower_components/
+
+# Documentation build output
+docs/_site/
+docs/.jekyll-cache/
+_site/
+.jekyll-metadata
+
+# PowerShell Gallery
+.psgallery/
+PSGalleryApiKey.txt
+
+# Module dependencies downloaded locally
+modules/*
+!modules/MyModule/
+
+# Pester Code Coverage
+codecoverage/
+OpenCover/
+
+# Script Analyzer
+PSScriptAnalyzer.log
+ScriptAnalyzerResults.xml
+
+# Environment specific
+.env
+.env.local
+.env.*.local
+
+# Backup files
+*.backup
+*.bak
+*.old
+backup/
+
+# Cache
+.cache/
+*.cache
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+
+# Debug output
+debug/
+*.debug
+
+# PowerShell help files (generated)
+*-help.xml
+en-US/*-help.xml
+about_*.help.txt
