@@ -1,46 +1,8 @@
-# Example PowerShell Repository
+# PowerShell Scripts Repository
 
-A well-organized PowerShell script and module repository following industry best practices.
-
-## 📁 Repository Structure
-
-```sh
-powershell-scripts/
-├── 📄 README.md                    # This file
-├── 📄 .gitignore                   # Git ignore rules
-├── 📄 CHANGELOG.md                 # Version history
-├── 📄 LICENSE                      # License information
-├── 📁 modules/                     # PowerShell modules
-│   └── 📁 MyModule/               
-│       ├── 📄 MyModule.psd1        # Module manifest
-│       ├── 📄 MyModule.psm1        # Main module file
-│       ├── 📁 Public/              # Public functions
-│       │   └── 📄 Get-Something.ps1
-│       └── 📁 Private/             # Private helper functions
-│           └── 📄 HelperFunctions.ps1
-├── 📁 scripts/                     # Standalone scripts
-│   ├── 📁 administration/          # Admin scripts
-│   │   └── 📄 Get-SystemInfo.ps1
-│   ├── 📁 automation/              # Automation scripts
-│   └── 📁 utilities/               # General utilities
-├── 📁 tests/                       # Pester tests
-│   └── 📄 MyModule.Tests.ps1
-├── 📁 docs/                        # Documentation
-├── 📁 tools/                       # Build and deployment tools
-└── 📁 .github/                     # GitHub workflows
-    └── 📁 workflows/
-        └── 📄 test.yml
-```
+A well-organized collection of PowerShell scripts and modules following industry best practices, with full cross-platform support.
 
 ## 🚀 Quick Start
-
-### Prerequisites
-
-- PowerShell 5.1+ or PowerShell Core 7+
-- Git (for version control)
-- Pester 5.0+ (for testing)
-
-### Installation
 
 ```powershell
 # Clone the repository
@@ -54,159 +16,89 @@ Import-Module .\modules\MyModule\MyModule.psd1
 .\scripts\administration\Get-SystemInfo.ps1
 ```
 
-## 📚 Modules
+## 📚 Documentation
 
-### MyModule
+- **[Installation Guide](docs/INSTALLATION.md)** - Setup instructions and prerequisites
+- **[Modules Documentation](docs/MODULES.md)** - Available modules and functions
+- **[Scripts Documentation](docs/SCRIPTS.md)** - Standalone scripts reference
+- **[Testing Guide](docs/TESTING.md)** - How to run and write tests
+- **[Development Guide](docs/DEVELOPMENT.md)** - Contributing code and best practices
+- **[Contributing](docs/CONTRIBUTING.md)** - How to contribute to the project
+- **[VS Code Quick Start](QUICKSTART.md)** - Get running quickly with VS Code
 
-**Version:** 1.0.0  
-**Description:** Example module demonstrating PowerShell best practices
+## 📁 Project Structure
 
-#### Functions
-
-- `Get-Something` - Retrieves information about specified items
-
-#### Usage
-
-```powershell
-# Import the module
-Import-Module .\modules\MyModule
-
-# Use the functions
-Get-Something -Name "ExampleItem"
-Get-Something -Name "Item1", "Item2" -ComputerName "Server01"
+```
+powershell-scripts/
+├── modules/           # PowerShell modules
+│   └── MyModule/     # Example module with functions
+├── scripts/          # Standalone scripts
+│   └── administration/   # System administration scripts
+├── tests/            # Pester test files
+├── tools/            # Build and deployment tools
+├── docs/             # Documentation
+└── .vscode/          # VS Code configuration
 ```
 
-## 📋 Scripts
+## ✨ Features
 
-### Administration Scripts
+- ✅ **Cross-platform** - Works on Windows, macOS, and Linux
+- ✅ **VS Code Integration** - Pre-configured for PowerShell development
+- ✅ **Testing Framework** - Comprehensive Pester tests
+- ✅ **Build Automation** - Automated build and deployment
+- ✅ **Best Practices** - Follows PowerShell community guidelines
+- ✅ **Documentation** - Extensive help and examples
 
-| Script | Description | Usage | Prerequisites |
-|--------|-------------|-------|---------------|
-| Get-SystemInfo.ps1 | Gathers comprehensive system information | `.\Get-SystemInfo.ps1 -ComputerName "Server01"` | WinRM for remote computers |
+## 🛠️ Available Tools
 
-### Automation Scripts
+### Modules
+- **MyModule** - Core module with Get/Set/Test/New functions
 
-*Coming soon...*
-
-### Utility Scripts
-
-*Coming soon...*
+### Scripts
+- **Get-SystemInfo** - Cross-platform system information gathering
+- **Get-SystemInfo-Windows** - Windows-specific with advanced features
 
 ## 🧪 Testing
 
-This repository uses Pester for testing. To run all tests:
-
 ```powershell
-# Install Pester if not already installed
-Install-Module -Name Pester -Force -SkipPublisherCheck
-
 # Run all tests
 Invoke-Pester .\tests\
 
-# Run tests with coverage
-$config = New-PesterConfiguration
-$config.CodeCoverage.Enabled = $true
-$config.CodeCoverage.Path = '.\modules\**\*.ps1'
-Invoke-Pester -Configuration $config
+# Run with coverage
+Invoke-Pester .\tests\ -CodeCoverage .\modules\**\*.ps1
 ```
 
-## 🔧 Development
+## 🔧 Requirements
 
-### Code Style
+- PowerShell 5.1+ or PowerShell Core 7+
+- Git (for version control)
+- Pester 5.0+ (for testing)
+- VS Code with PowerShell extension (recommended)
 
-- Follow PowerShell best practices
-- Use approved verbs (Get-, Set-, New-, Remove-, etc.)
-- Include comment-based help for all functions
-- Use PascalCase for function names
-- Use camelCase for variable names
+## 📝 License
 
-### Adding New Functions
-
-1. Create the function file in the appropriate module's `Public/` folder
-2. Follow the naming convention: `Verb-Noun.ps1`
-3. Include comprehensive comment-based help
-4. Add the function name to the module manifest (`FunctionsToExport`)
-5. Write Pester tests in the `tests/` folder
-
-### Commit Message Format
-
-```
-type(scope): description
-
-[optional body]
-
-[optional footer]
-```
-
-Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-
-Examples:
-
-- `feat(module): add Get-UserInfo function`
-- `fix(scripts): resolve authentication issue in Get-SystemInfo`
-- `docs(readme): update installation instructions`
-
-## 📖 Documentation
-
-- **User Guide**: `docs/user-guide.md`
-- **API Reference**: `docs/api-reference.md`
-- **Contributing**: `docs/contributing.md`
-- **Troubleshooting**: `docs/troubleshooting.md`
-
-## 🔒 Security
-
-- Never commit credentials or sensitive information
-- Use secure credential handling (Get-Credential, secure strings)
-- Validate all input parameters
-- Follow principle of least privilege
-
-## 📜 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-7. Push to the branch (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
+Contributions are welcome! Please read our [Contributing Guide](docs/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## 📊 Status
+
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## 📞 Support
 
-- 📧 Email: <your.email@example.com>
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/repo/issues)
-- 📚 Wiki: [Project Wiki](https://github.com/yourusername/repo/wiki)
+- 📧 Email: your.email@example.com
+- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/powershell-scripts/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/powershell-scripts/discussions)
 
-## 📈 Changelog
+## 🙏 Acknowledgments
 
-### [1.0.0] - 2025-01-01
-
-#### Added
-
-- Initial release
-- MyModule with Get-Something function
-- Get-SystemInfo administration script
-- Comprehensive testing framework
-- CI/CD pipeline with GitHub Actions
-
-#### Changed
-
-- N/A
-
-#### Fixed
-
-- N/A
-
-## 🏗️ Build Status
-
-[![PowerShell Tests](https://github.com/yourusername/repo/workflows/PowerShell%20Tests/badge.svg)](https://github.com/yourusername/repo/actions)
-[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/YourModuleName.svg)](https://www.powershellgallery.com/packages/YourModuleName)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Built with PowerShell best practices and community standards in mind.
 
 ---
 
-*This README follows the PowerShell repository conventions outlined in the project documentation.*
+**[Get Started →](docs/INSTALLATION.md)**
