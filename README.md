@@ -6,7 +6,7 @@ A well-organized collection of PowerShell scripts and modules following industry
 
 ```powershell
 # Clone the repository
-git clone https://github.com/yourusername/powershell-scripts.git
+git clone https://github.com/malston/powershell-scripts.git
 cd powershell-scripts
 
 # Import the module
@@ -52,9 +52,11 @@ powershell-scripts/
 ## 🛠️ Available Tools
 
 ### Modules
+
 - **MyModule** - Core module with Get/Set/Test/New functions
 
 ### Scripts
+
 - **Get-SystemInfo** - Cross-platform system information gathering
 - **Get-SystemInfo-Windows** - Windows-specific with advanced features
 
@@ -91,9 +93,9 @@ Contributions are welcome! Please read our [Contributing Guide](docs/CONTRIBUTIN
 
 ## 📞 Support
 
-- 📧 Email: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/powershell-scripts/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/powershell-scripts/discussions)
+- 📧 Email: <your.email@example.com>
+- 🐛 Issues: [GitHub Issues](https://github.com/malston/powershell-scripts/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/malston/powershell-scripts/discussions)
 
 ## 🙏 Acknowledgments
 
