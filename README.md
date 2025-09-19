@@ -28,7 +28,7 @@ Import-Module .\modules\MyModule\MyModule.psd1
 
 ## 📁 Project Structure
 
-```
+```sh
 powershell-scripts/
 ├── modules/           # PowerShell modules
 │   └── MyModule/     # Example module with functions
@@ -90,12 +90,6 @@ Contributions are welcome! Please read our [Contributing Guide](docs/CONTRIBUTIN
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
-
-## 📞 Support
-
-- 📧 Email: <your.email@example.com>
-- 🐛 Issues: [GitHub Issues](https://github.com/malston/powershell-scripts/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/malston/powershell-scripts/discussions)
 
 ## 🙏 Acknowledgments
 
