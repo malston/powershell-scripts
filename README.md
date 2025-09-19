@@ -24,7 +24,7 @@ Import-Module .\modules\MyModule\MyModule.psd1
 - **[Testing Guide](docs/TESTING.md)** - How to run and write tests
 - **[Development Guide](docs/DEVELOPMENT.md)** - Contributing code and best practices
 - **[Contributing](docs/CONTRIBUTING.md)** - How to contribute to the project
-- **[VS Code Quick Start](QUICKSTART.md)** - Get running quickly with VS Code
+- **[Changelog](CHANGELOG.md)** - Version history and release notes
 
 ## 📁 Project Structure
 

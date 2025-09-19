@@ -50,7 +50,7 @@ check-prereqs: ## Check if PowerShell is installed
 		exit 1; \
 	else \
 		printf "$(GREEN)✅ PowerShell found: $(PWSH)$(NC)\n"; \
-		$(PWSH) -NoProfile -Command 'Write-Host "PowerShell Version: $$$$PSVersionTable.PSVersion" -ForegroundColor Green'; \
+		$(PWSH) -NoProfile -Command "Write-Host 'PowerShell Version:' \$$PSVersionTable.PSVersion -ForegroundColor Green"; \
 	fi
 
 ## Installation
@@ -119,9 +119,9 @@ lint: check-prereqs ## Run PSScriptAnalyzer on all scripts
 			Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser; \
 		}; \
 		Write-Host 'Analyzing scripts...' -ForegroundColor Yellow; \
-		$$results = Invoke-ScriptAnalyzer -Path . -Recurse; \
-		if ($$results) { \
-			$$results | Format-Table -AutoSize; \
+		\$$results = Invoke-ScriptAnalyzer -Path . -Recurse; \
+		if (\$$results) { \
+			\$$results | Format-Table -AutoSize; \
 			exit 1; \
 		} else { \
 			Write-Host '✅ No issues found!' -ForegroundColor Green; \
@@ -191,21 +191,21 @@ ci: check-prereqs lint test ## Run CI pipeline (lint and test)
 ## Info
 info: check-prereqs ## Show system and module information
 	@printf "$(BLUE)System Information:$(NC)\n"
-	@$(PWSH) -NoProfile -Command ' \
-		Write-Host "PowerShell Version: $$$$PSVersionTable.PSVersion"; \
-		Write-Host "Edition: $$$$PSVersionTable.PSEdition"; \
-		Write-Host "OS: $$$$PSVersionTable.OS"; \
-		Write-Host "Platform: $$$$PSVersionTable.Platform"; \
-		Write-Host ""; \
-		Write-Host "Installed Modules:" -ForegroundColor Yellow; \
-		@("Pester", "PSScriptAnalyzer", "VCF.PowerCLI") | ForEach-Object { \
-			$$$$module = Get-Module -Name $$$$_ -ListAvailable | Select-Object -First 1; \
-			if ($$$$module) { \
-				Write-Host "  $$$$_`t`t$$$$($$$$module.Version)" -ForegroundColor Green; \
+	@$(PWSH) -NoProfile -Command " \
+		Write-Host 'PowerShell Version:' \$$PSVersionTable.PSVersion; \
+		Write-Host 'Edition:' \$$PSVersionTable.PSEdition; \
+		Write-Host 'OS:' \$$PSVersionTable.OS; \
+		Write-Host 'Platform:' \$$PSVersionTable.Platform; \
+		Write-Host ''; \
+		Write-Host 'Installed Modules:' -ForegroundColor Yellow; \
+		@('Pester', 'PSScriptAnalyzer', 'VCF.PowerCLI') | ForEach-Object { \
+			\$$module = Get-Module -Name \$$_ -ListAvailable | Select-Object -First 1; \
+			if (\$$module) { \
+				Write-Host \"  \$$_\`t\`t\$$(\$$module.Version)\" -ForegroundColor Green; \
 			} else { \
-				Write-Host "  $$$$_`t`tNot Installed" -ForegroundColor Red; \
+				Write-Host \"  \$$_\`t\`tNot Installed\" -ForegroundColor Red; \
 			} \
-		}'
+		}"
 
 list-scripts: ## List all available PowerShell scripts
 	@printf "$(BLUE)Available PowerShell Scripts:$(NC)\n"
